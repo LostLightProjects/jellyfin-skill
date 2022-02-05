@@ -4,7 +4,15 @@ This skill is a fork of the emby skill that allows audio playback from a Jellyfi
 ## About
 Stream music from your Jellyfin server using Mycroft! Play all songs by an artist or an instant mix of any artist/album/song in your Jellyfin library.
 
-This has been tested on Ubuntu using VLC audio backend.
+This has been tested on Zorin OS 16 (Ubuntu 20.04 LTS) using VLC audio backend.
+
+## Bugs
+* Common Play Framework not working with anything except "pause, next song, stop, resume"
+* I can't seem to get it to play a specific song
+
+## Fixed Issues
+* Playlists now play
+* Settings in home.mycroft.ai fixed (wasn't showing up)
 
 ## Installation
 * mycroft-msm install https://github.com/ghostbuster84/jellyfin-mycroft-skill/
