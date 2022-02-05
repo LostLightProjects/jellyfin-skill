@@ -1,0 +1,26 @@
+skillMetadata:
+  sections:
+  - name: Server
+    fields:
+    - type: label
+      label: Server settings
+    - name: hostname
+      type: text
+      label: Url
+      value: 'http://jellyfin'
+    - name: port
+      type: number
+      label: Port
+      value: '8096'
+  - name: User Login Information
+    fields:
+    - type: label
+      label: Username and Password. Leave the password blank if you do not use a password.
+    - name: username
+      type: text
+      label: Username
+      value: ''
+    - name: password
+      type: password
+      label: Password
+      value: ''
