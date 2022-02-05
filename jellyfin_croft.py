@@ -61,6 +61,8 @@ class JellyfinCroft(object):
             return intent['artist'], IntentType.from_string('artist')
         elif 'album' in intent:
             return intent['album'], IntentType.from_string('album')
+        elif 'playlist' in intent:
+            return intent['playlist'], IntentType.from_string('playlist')
         elif 'genre' in intent:
             return intent['genre'], IntentType.from_string('genre')
         else:
