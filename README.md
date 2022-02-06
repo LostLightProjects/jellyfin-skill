@@ -15,12 +15,13 @@ This has been tested on Zorin OS 16 (Ubuntu 20.04 LTS) using VLC audio backend.
 * Settings in home.mycroft.ai fixed (wasn't showing up)
 
 ## Installation
-* mycroft-msm install https://github.com/ghostbuster84/jellyfin-mycroft-skill/
+* mycroft-msm install https://github.com/ghostbuster84/jellyfin-skill/
 
 ## Picroft
 You will need to install vlc, installing just vlc-bin will not work which is really annoying.
 This requirement might change as mycroft supports more audio backends.
-* sudo apt-get install vlc
+* sudo apt update && sudo apt upgrade
+* sudo apt install vlc
 
 The common play framework does not work on picroft at the moment as the queries timeout before the request is complete, this is a bug in the playback control skill so for now you will have to use the "from jellyfin" intent, eg; "Play artist Blackmore's Night from jellyfin"
 
