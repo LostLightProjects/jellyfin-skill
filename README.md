@@ -9,6 +9,7 @@ This has been tested on Zorin OS 16 (Ubuntu 20.04 LTS) using VLC audio backend.
 ## Bugs
 * Common Play Framework not working with anything except "pause, next song, stop, resume"
 * I can't seem to get it to play a specific song
+* For some reason music stopped playing entirely. Not sure if its my server or the skill. Looking into this as soon as possible.
 
 ## Fixed Issues
 * Playlists now play
