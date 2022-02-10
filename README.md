@@ -11,9 +11,6 @@ This has been tested on Zorin OS 16 (Ubuntu 20.04 LTS) using VLC audio backend.
 * I can't seem to get it to play a specific song
 * For some reason music stopped playing entirely. Not sure if its my server or the skill. Looking into this as soon as possible.
 
-## Other Issues
-*Jellyfin isn't working at all for me at the moment. I will be temporarily switching back to EMBY until this issue is fixed.
-
 ## Fixed Issues
 * Playlists now play
 * Settings in home.mycroft.ai fixed (wasn't showing up)
