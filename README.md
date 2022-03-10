@@ -6,6 +6,10 @@ Stream music from your Jellyfin server using Mycroft! Play all songs by an artis
 
 This has been tested on Zorin OS 16 (Ubuntu 20.04 LTS) using VLC audio backend and PiCroft using Google AIY Voicekit and VLC
 
+## Community
+I now have a Matrix Chat setup #mycroft-jellyfin-skill:matrix.org
+Note: I have not yet setup a bridge to telegram. It is on a to-do list.
+
 ## Bugs
 * Common Play Framework not working with anything except "pause, next song, stop, resume"
 * I can't seem to get it to play a specific song
