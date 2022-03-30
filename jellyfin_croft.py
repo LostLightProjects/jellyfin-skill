@@ -332,7 +332,7 @@ class JellyfinCroft(object):
         for media_type in media_types.keys():
             if media_type in phrase:
                 intent = media_types.get(media_type)
-                logging.log(20, "Found intent in common phrase: " + media_type)
+                self.log.info("Found intent in common phrase: " + media_type)
                 phrase = phrase.replace(media_type, "")
                 break
 
@@ -345,7 +345,7 @@ class JellyfinCroft(object):
         :return:
         """
 
-        logging.log(20, "phrase: " + phrase)
+        self.log.info("phrase: " + phrase)
 
         phrase, intent = self.smart_parse_common_phrase(phrase)
 
@@ -358,7 +358,7 @@ class JellyfinCroft(object):
         if results is None or len(results) is 0:
             return None, None
         else:
-            logging.log(20, "Found: " + str(len(results)) + " to parse")
+            self.log.info("Found: " + str(len(results)) + " to parse")
             # the idea here is
             # if an artist is found, return songs from this artist
             # elif an album is found, return songs from this album
@@ -380,7 +380,7 @@ class JellyfinCroft(object):
                 elif result.type == MediaItemType.SONG:
                     songs.append(result)
                 else:
-                    logging.log(20, "Item is not an Artist/Album/Song: " + result.type.value)
+                    self.log.info("Item is not an Artist/Album/Song: " + result.type.value)
             if artists:
                 artist_songs = self.get_songs_by_artist(artists[0].id)
                 return 'artist', artist_songs
@@ -439,14 +439,14 @@ class JellyfinCroft(object):
             return connection_success, server_info
 
         if response.status_code != 200:
-            logging.log(20, 'Non 200 status code returned when fetching public server info: ' + str(response.status_code))
+            self.log.info('Non 200 status code returned when fetching public server info: ' + str(response.status_code))
         else:
             connection_success = True
         try:
             server_info = json.loads(response.text)
         except Exception as e:
             details = 'Failed to parse server details, error: ' + str(e)
-            logging.log(20, details)
+            self.log.info(details)
             server_info['Error'] = details
 
         return connection_success, server_info
