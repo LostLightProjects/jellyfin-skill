@@ -1,10 +1,23 @@
-# Jellyfin
+# <img src='https://raw.githack.com/FortAwesome/Font-Awesome/master/svgs/solid/music.svg' card_color='#010101' width='50' height='50' style='vertical-align:bottom'/> Jellyfin
 This skill is a fork of the emby skill that allows audio playback from a Jellyfin server
 
 ## About
 Stream music from your Jellyfin server using Mycroft! Play all songs by an artist or an instant mix of any artist/album/song in your Jellyfin library.
 
 This has been tested on Zorin OS 16 (Ubuntu 20.04 LTS) using VLC audio backend and PiCroft using Google AIY Voicekit and VLC
+
+
+## Examples
+
+## Credits
+rickyphewitt (Emby)
+
+## Category
+**Music**
+
+## Tags
+#Jellyfin,#Music
+
 
 ## Community
 I now have a Matrix Chat setup #mycroft-jellyfin-skill:matrix.org
@@ -62,18 +75,6 @@ You can add the currently playing song to a playlist(it has to exist)
 Go to https://account.mycroft.ai/skills
 Make sure to enter in your jellyfin server URL and login credentials.
 
-## Credits
-rickyphewitt (Emby)
-tuxfoo (Jellyfin Fork)
-jason-kurzik (Jellyfin Fork from tuxfoo)
-ghostbuster84 (Jellyfin Repo)
-
-## Category
-**Music**
-
-## Tags
-#Jellyfin,#Music
-
 ## Contributing
 Always looking for bug fixes, features, translation, and feedback that make the Jellyfin for Mycroft experience better!
 
@@ -82,4 +83,6 @@ Always looking for bug fixes, features, translation, and feedback that make the 
 * Ensure your host, port, username, and password are set at https://account.mycroft.ai/skills
 ### Check Server Connection
 * "Check Jellyfin/Emby"
-    * This will attempt to connect then authenticate to your Jellyfin server using the connection info provided above
+* This will attempt to connect then authenticate to your Jellyfin server using the connection info provided above
+
+
