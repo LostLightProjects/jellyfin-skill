@@ -1,6 +1,5 @@
 # <img src='https://raw.githack.com/FortAwesome/Font-Awesome/master/svgs/solid/music.svg' card_color='#010101' width='50' height='50' style='vertical-align:bottom'/> Jellyfin
-This skill is a fork of the emby skill that allows audio playback from a Jellyfin server. Now this repo is owned by Lost Light Projects.
-
+This skill is a fork of the emby skill that allows audio playback from a Jellyfin server.
 ## About
 Stream music from your Jellyfin server using Mycroft! Play all songs by an artist or an instant mix of any artist/album/song in your Jellyfin library.
 
