@@ -9,7 +9,10 @@ This has been tested on Zorin OS 16 (Ubuntu 20.04 LTS) using VLC audio backend a
 ## Examples
 
 ## Credits
-rickyphewitt (Emby)
+ghostbuster84 (Jellyfin)
+rickyphewitt (Original Emby Skill)
+meonkeys
+tuxfoo (Original Jellyfin Skill)
 
 ## Category
 **Music**
