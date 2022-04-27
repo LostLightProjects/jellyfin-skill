@@ -26,11 +26,14 @@ I now have a Matrix Chat setup #mycroft-jellyfin-skill:matrix.org
 Note: I have not yet setup a bridge to telegram. It is on a to-do list.
 
 ## Bugs
-* I can't seem to get it to play a specific song
+* Doesn't like to play individual songs on request. Workaround is to make a separate playlist for each song (If you want to do the work for that). Sorry for any inconvienience but on the bright side, this seems to be the only bug.
+
+NOTE: Some albums don't like to play, after extensive testing with the skill, I found out it was a bug on Jellyfin's side. Not the skill. Workaround is to add all songs from the album in question to a dedicated playlist.
 
 ## Fixed Issues
 * Playlists now play
 * Settings in home.mycroft.ai fixed (wasn't showing up)
+* Common Play Framework on all devices other than picroft seem to now work
 
 ## Installation
 * mycroft-msm install https://github.com/LostLightProjects/jellyfin-skill/
