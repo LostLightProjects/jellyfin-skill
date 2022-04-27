@@ -32,7 +32,7 @@ Note: I have not yet setup a bridge to telegram. It is on a to-do list.
 * Settings in home.mycroft.ai fixed (wasn't showing up)
 
 ## Installation
-* mycroft-msm install https://github.com/ghostbuster84/jellyfin-skill/
+* mycroft-msm install https://github.com/LostLightProjects/jellyfin-skill/
 
 ## Picroft
 You will need to install vlc, installing just vlc-bin will not work which is really annoying.
