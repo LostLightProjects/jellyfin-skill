@@ -57,6 +57,7 @@ If you have other music services you can use the from intent
 * "Play artist Blackmore's Night from jellyfin"
 * "Play playlist fun mix from jellyfin"
 * "Play rock from jellyfin"
+* "Play album Country from Jellyfin"
 
 ## OTHER Features
 You can ask for the track information.
