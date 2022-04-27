@@ -3,7 +3,7 @@ This skill is a fork of the emby skill that allows audio playback from a Jellyfi
 ## About
 Stream music from your Jellyfin server using Mycroft! Play all songs by an artist or an instant mix of any artist/album/song in your Jellyfin library.
 
-This has been tested on Zorin OS 16 (Ubuntu 20.04 LTS) using VLC audio backend and PiCroft using Google AIY Voicekit and VLC
+This has been tested on Zorin OS 16 (Ubuntu 20.04 LTS) using VLC audio backend, Debian Stable, Fedora Worksation 35 & 36 and PiCroft using Google AIY Voicekit and VLC (VLC is needed for PiCroft - read down below)
 
 
 ## Examples
@@ -22,8 +22,7 @@ tuxfoo (Original Jellyfin Skill)
 
 
 ## Community
-I now have a Matrix Chat setup #mycroft-jellyfin-skill:matrix.org
-Note: I have not yet setup a bridge to telegram. It is on a to-do list.
+I now have a Matrix Chat setup #mycroft-jellyfin-skill:matrix.org and is bridged to telegram t.me/jellyfinmycroft
 
 ## Bugs
 * Doesn't like to play individual songs on request. Workaround is to make a separate playlist for each song (If you want to do the work for that). Sorry for any inconvienience but on the bright side, this seems to be the only bug.
