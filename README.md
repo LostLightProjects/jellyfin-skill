@@ -78,13 +78,13 @@ Go to https://account.mycroft.ai/skills
 Make sure to enter in your jellyfin server URL and login credentials.
 
 ## Contributing
-Always looking for bug fixes, features, translation, and feedback that make the Jellyfin for Mycroft experience better!
+Always looking for bug fixes, features, translation, and feedback that make the Jellyfin for Mycroft experience better! Please fork this project and then make a pull request with your changes.
 
 ## Troubleshooting
 ### Setup Connection Info
 * Ensure your host, port, username, and password are set at https://account.mycroft.ai/skills
 ### Check Server Connection
-* "Check Jellyfin/Emby"
+* "Check Jellyfin"
 * This will attempt to connect then authenticate to your Jellyfin server using the connection info provided above
 
 
