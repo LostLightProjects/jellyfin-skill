@@ -22,7 +22,7 @@ This has been tested on Zorin OS 16 (Ubuntu 20.04 LTS) using VLC audio backend, 
 
 
 ## Community
-I now have a Matrix Chat setup and it is bridged to Telegram. Find it on our Website at Lostlight.me
+I now have a Matrix Chat setup and it is bridged to Telegram. Find it on our Website at https://Lostlight.me
 
 ## Bugs
 * As far as I'm aware, we are bug free!
