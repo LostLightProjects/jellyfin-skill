@@ -3,7 +3,7 @@ This skill is a fork of the emby skill that allows audio playback from a Jellyfi
 ## About
 Stream music from your Jellyfin server using Mycroft! Play all songs by an artist or an instant mix of any artist/album/song in your Jellyfin library.
 
-This has been tested on Zorin OS 16 (Ubuntu 20.04 LTS) using VLC audio backend, Debian Stable, Fedora Worksation 35 & 36 and PiCroft using Google AIY Voicekit and VLC (VLC is needed for PiCroft - read down below)
+This has been tested on Zorin OS 16 (Ubuntu 20.04 LTS) using VLC audio backend, Debian Stable, Fedora Worksation 35 & 36, Lost Light OS and PiCroft using Google AIY Voicekit and VLC (VLC is needed for PiCroft - read down below)
 
 
 ## Examples
@@ -22,17 +22,17 @@ tuxfoo (Original Jellyfin Skill)
 
 
 ## Community
-I now have a Matrix Chat setup #mycroft-jellyfin-skill:matrix.org and is bridged to telegram t.me/jellyfinmycroft
+I now have a Matrix Chat setup and it is bridged to Telegram. Find it on our Website at Lostlight.me
 
 ## Bugs
-* Doesn't like to play individual songs on request. Workaround is to make a separate playlist for each song (If you want to do the work for that). Sorry for any inconvienience but on the bright side, this seems to be the only bug.
-
+* As far as I'm aware, we are bug free!
 NOTE: Some albums don't like to play, after extensive testing with the skill, I found out it was a bug on Jellyfin's side. Not the skill. Workaround is to add all songs from the album in question to a dedicated playlist.
 
 ## Fixed Issues
 * Playlists now play
 * Settings in home.mycroft.ai fixed (wasn't showing up)
 * Common Play Framework on all devices other than picroft seem to now work
+* Individual songs now play as long as there is metadata for it to read, I.E. Name of Song.
 
 ## Installation
 * mycroft-msm install https://github.com/LostLightProjects/jellyfin-skill/
@@ -49,19 +49,19 @@ The common play framework does not work on picroft at the moment as the queries 
 This skill supports the common play framework! This means you don't have to specify "Jellyfin" in your intent. For Example
 * "Play The Beatles"
 * "Play artist The Beatles"
-* "Play playlist fun mix"
-* "Play song Hey Jude"
-* "Play heavy metal"
-* "next song"
+* "Play playlist Fun Mix"
+* "Play song Fancy Like"
+* "Play Country"
+* "next song" or "skip song"
 * "pause"
 * "stop"
 * "resume"
 
 ## From Intent
 If you have other music services you can use the from intent
-* "Play artist Blackmore's Night from jellyfin"
-* "Play playlist fun mix from jellyfin"
-* "Play rock from jellyfin"
+* "Play artist The Beach Boys from jellyfin"
+* "Play playlist Fun Mix from jellyfin"
+* "Play Country from jellyfin"
 * "Play album Country from Jellyfin"
 
 ## OTHER Features
@@ -71,7 +71,7 @@ You can ask for the track information.
 You can shuffle your music
 * "shuffle"
 
-You can add the currently playing song to a playlist(it has to exist)
+You can add the currently playing song to a playlist(it has to exist first)
 * "add to (playlist name)"
 * "add to fun mix"
 
