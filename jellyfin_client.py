@@ -198,6 +198,11 @@ class JellyfinClient(PublicJellyfinClient):
         url = PLAYLIST_URL + "/" + str(playlist_id) + ITEMS_URL + "?userId=" + self.auth.user_id
         return self._get(url)
 
+    # Get item from id
+    def get_item(self, song_id):
+        url = "/Users/" + self.auth.user_id + ITEMS_URL + "?ids=" + str(song_id)
+        return self._get(url)
+
     def get_all_artists(self):
         return self._get(ARTISTS_URL)
 

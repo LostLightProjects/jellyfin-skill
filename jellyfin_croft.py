@@ -148,8 +148,6 @@ class JellyfinCroft(object):
         playlist = self.search_playlist(playlist)
         if len(playlist) > 0:
             song_id = self.track_id_from_url(track_id)
-            self.log.info("playlist id:")
-            self.log.info(playlist[0].id)
             add_to = self.client.add_to_playlist(song_id, playlist[0].id)
             return add_to
         else:
@@ -279,6 +277,10 @@ class JellyfinCroft(object):
         response = self.client.get_songs_by_playlist(playlist_id)
         return self.convert_response_to_playable_songs(response)
 
+    # Get songs from id (To allow meta data fetching)
+    def get_songs_by_id(self, song_id):
+        response = self.client.get_item(song_id)
+        return self.convert_response_to_playable_songs(response)
 
     def get_server_info_public(self):
         return self.client.get_server_info_public()
@@ -401,8 +403,9 @@ class JellyfinCroft(object):
                 genre_songs = self.get_songs_by_genre(genre[0].id)
                 return 'genre', genre_songs
             elif songs:
+                song_songs = self.get_songs_by_id(songs[0].id)
                 # if a song(s) matches pick the 1st
-                song_songs = self.convert_to_playable_songs(songs)
+                #song_songs = self.convert_to_playable_songs(songs)
                 return 'song', song_songs
             elif playlists:
                 playlist_songs = self.get_songs_by_playlist(playlists[0].id)
