@@ -78,6 +78,9 @@ You can add the currently playing song to a playlist(it has to exist first)
 You can create a new playlist
 * "Create a playlist called (playlist name)
 
+You can like/favorite a song
+* "like this song"
+
 
 ## Set up
 Go to https://account.mycroft.ai/skills

@@ -210,13 +210,27 @@ class Jellyfin(CommonPlaySkill):
         self.speak_dialog('createplaylist_fail', {'playlist_name' : message.data.get('playlist_name')})
         return
 
+    # Intent foor marking a song as favorite
+    @intent_file_handler('favorite.intent')
+    def handle_favorite(self, message):
+        if self.audio_service.is_playing:
+            track = self.audio_service.track_info()['name']
+            track_name = self.jellyfin_croft.get_meta(track)
+            favorite = self.jellyfin_croft.favorite(track)
+            if favorite == True:
+                self.speak_dialog('favorite', {'track_name' : track_name['Name']})
+                return
+            else:
+                self.speak_dialog('favorite_fail', {'track_name' : track_name['Name']})
+                return
+
     @intent_file_handler('diagnostic.intent')
     def handle_diagnostic(self, message):
 
         self.log.info(message.data)
         self.speak_dialog('diag_start')
 
-        # connec to jellyfin for diagnostics
+        # connect to jellyfin for diagnostics
         self.connect_to_jellyfin(diagnostic=True)
         connection_success, info = self.jellyfin_croft.diag_public_server_info()
 

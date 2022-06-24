@@ -160,6 +160,11 @@ class JellyfinCroft(object):
         playlist = self.client.create_playlist(playlist_name)
         return playlist
             
+    # Mark a song as favorite
+    def favorite(self, track_id):
+        track_id = self.track_id_from_url(track_id)  
+        return self.client.favorite(track_id)
+
     def search_artist(self, artist):
         """
         Helper method to just search Jellyfin for an artist

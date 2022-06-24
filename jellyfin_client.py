@@ -10,6 +10,7 @@ PLAYLIST_URL = "/Playlists"
 ARTIST_INSTANT_MIX_URL = ARTISTS_URL + "/InstantMix"
 SONG_FILE_URL = "/Audio"
 DOWNLOAD_URL = "/Download"
+FAVORITE_URL = "/FavoriteItems"
 ITEMS_ARTIST_KEY = "ArtistIds"
 ITEMS_PARENT_ID_KEY = "ParentId"
 ITEMS_GENRE_KEY =  "GenreIds="
@@ -159,6 +160,15 @@ class JellyfinClient(PublicJellyfinClient):
         payload.update(self.get_headers())
         url = PLAYLIST_URL + "?userId=" + self.auth.user_id
         response = self._post(url, payload)
+        if response.status_code == 200:
+            return True
+        else:
+            return False
+
+    # Marks a song as a favorite
+    def favorite(self, song_id):
+        url = "/Users/" + self.auth.user_id + FAVORITE_URL + "/" + song_id
+        response = self._post(url, self.get_headers())
         if response.status_code == 200:
             return True
         else:
