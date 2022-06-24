@@ -7,7 +7,7 @@ import json
 import re
 
 try:
-    # this import works when installing/running the skill
+    # this import works wIntentTypehen installing/running the skill
     # note the relative '.'
     from .jellyfin_client import JellyfinClient, MediaItemType, JellyfinMediaItem, PublicJellyfinClient
 except (ImportError, SystemError):
@@ -162,6 +162,10 @@ class JellyfinCroft(object):
     def favorite(self, track_id):
         track_id = self.track_id_from_url(track_id)  
         return self.client.favorite(track_id)
+
+    # Get favorite songs
+    def get_favorites(self):
+        return self.convert_response_to_playable_songs(self.client.get_favorites())
 
     def search_artist(self, artist):
         """

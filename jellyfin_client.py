@@ -14,7 +14,9 @@ FAVORITE_URL = "/FavoriteItems"
 ITEMS_ARTIST_KEY = "ArtistIds"
 ITEMS_PARENT_ID_KEY = "ParentId"
 ITEMS_GENRE_KEY =  "GenreIds="
+ITEMS_FAVORITE_KEY = "IsFavorite=true"
 ITEMS_URL = "/Items"
+ITEMS_BY_FAVORITE_URL = ITEMS_URL + "?SortBy=SortName&SortOrder=Ascending&IncludeItemTypes=Audio&Recursive=true&" + ITEMS_FAVORITE_KEY
 ITEMS_ALBUMS_URL = ITEMS_URL + "?SortBy=SortName&SortOrder=Ascending&IncludeItemTypes=MusicAlbum&Recursive=true&" + ITEMS_ARTIST_KEY + "="
 ITEMS_SONGS_BY_ARTIST_URL = ITEMS_URL + "?SortBy=SortName&SortOrder=Ascending&IncludeItemTypes=Audio&Recursive=true&" + ITEMS_ARTIST_KEY + "="
 ITEMS_SONGS_BY_GENRE_URL = ITEMS_URL + "?SortBy=SortName&SortOrder=Ascending&IncludeItemTypes=Audio&Recursive=true&" + ITEMS_GENRE_KEY
@@ -173,6 +175,11 @@ class JellyfinClient(PublicJellyfinClient):
             return True
         else:
             return False
+    
+    # Gets favorite songs
+    def get_favorites(self):
+        url = "/Users/" + self.auth.user_id + ITEMS_BY_FAVORITE_URL
+        return self._get(url)
 
     def get_albums_by_artist(self, artist_id):
         url = "/Users/" + self.auth.user_id + ITEMS_ALBUMS_URL + str(artist_id)

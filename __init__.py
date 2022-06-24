@@ -135,6 +135,27 @@ class Jellyfin(CommonPlaySkill):
             self.speak_playing(intent)
             self.audio_service.play(self.songs, message.data['utterance'])
 
+    # Play favorites
+    @intent_file_handler('isfavorite.intent')
+    def handle_is_favorite(self, message):
+        self.log.info(message.data)
+        if not self.connect_to_jellyfin():
+            self.speak_dialog('configuration_fail')
+            return
+        self.songs = self.jellyfin_croft.get_favorites()
+        if not self.songs or len(self.songs) < 1:
+            self.log.info('No songs Returned')
+            self.speak_dialog('play_fail', {"media": "favorites"})
+        else:
+            # setup audio service and play        
+            self.audio_service = AudioService(self.bus)
+            backends = self.audio_service.available_backends()
+            self.log.debug("BACKENDS. VLC Recommended")
+            for key , value in backends.items():
+                self.log.debug(str(key) + " : " + str(value))
+            self.speak_dialog('isfavorite')
+            self.audio_service.play(self.songs, message.data['utterance'])
+
     @intent_file_handler('shuffle.intent')
     def handle_shuffle(self, message):
         self.log.info(message.data)
