@@ -128,7 +128,7 @@ class Jellyfin(CommonPlaySkill):
         else:
             # setup audio service and play        
             self.audio_service = AudioService(self.bus)
-            backends = self.audio_service.availablget_instant_mix_songse_backends()
+            backends = self.audio_service.available_backends()
             self.log.debug("BACKENDS. VLC Recommended")
             for key , value in backends.items():
                 self.log.debug(str(key) + " : " + str(value))
