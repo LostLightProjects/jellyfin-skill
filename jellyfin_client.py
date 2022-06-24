@@ -153,6 +153,17 @@ class JellyfinClient(PublicJellyfinClient):
         else:
             return False
 
+    # Create a new jellyfin playlist
+    def create_playlist(self, name):
+        payload = {'Name': name}
+        payload.update(self.get_headers())
+        url = PLAYLIST_URL + "?userId=" + self.auth.user_id
+        response = self._post(url, payload)
+        if response.status_code == 200:
+            return True
+        else:
+            return False
+
     def get_albums_by_artist(self, artist_id):
         url = "/Users/" + self.auth.user_id + ITEMS_ALBUMS_URL + str(artist_id)
         return self._get(url)

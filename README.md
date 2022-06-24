@@ -75,6 +75,10 @@ You can add the currently playing song to a playlist(it has to exist first)
 * "add to (playlist name)"
 * "add to fun mix"
 
+You can create a new playlist
+* "Create a playlist called (playlist name)
+
+
 ## Set up
 Go to https://account.mycroft.ai/skills
 Make sure to enter in your jellyfin server URL and login credentials.

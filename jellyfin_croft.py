@@ -95,7 +95,7 @@ class JellyfinCroft(object):
             playlist_items = self.search_playlist(intent)
             songs = self.get_songs_by_playlist(playlist_items[0].id)
         elif intent_type == IntentType.GENRE:
-            genre_items = get_songs_by_genre(intent)
+            genre_items = self.get_songs_by_genre(intent)
             songs = self.get_songs_by_genre(genre_items[0].id)
         return songs
 
@@ -154,6 +154,11 @@ class JellyfinCroft(object):
             return add_to
         else:
             return False
+
+    # Create a new jellyfin playlist
+    def create_playlist(self, playlist_name):
+        playlist = self.client.create_playlist(playlist_name)
+        return playlist
             
     def search_artist(self, artist):
         """
