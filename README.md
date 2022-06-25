@@ -81,6 +81,8 @@ You can create a new playlist
 You can like/favorite a song
 * "like this song"
 
+You can play liked/favorite songs
+* play liked songs
 
 ## Set up
 Go to https://account.mycroft.ai/skills
