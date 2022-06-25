@@ -7,7 +7,7 @@ import json
 import re
 
 try:
-    # this import works when installing/running the skill
+    # this import works wIntentTypehen installing/running the skill
     # note the relative '.'
     from .jellyfin_client import JellyfinClient, MediaItemType, JellyfinMediaItem, PublicJellyfinClient
 except (ImportError, SystemError):
@@ -95,7 +95,7 @@ class JellyfinCroft(object):
             playlist_items = self.search_playlist(intent)
             songs = self.get_songs_by_playlist(playlist_items[0].id)
         elif intent_type == IntentType.GENRE:
-            genre_items = get_songs_by_genre(intent)
+            genre_items = self.get_songs_by_genre(intent)
             songs = self.get_songs_by_genre(genre_items[0].id)
         return songs
 
@@ -148,13 +148,25 @@ class JellyfinCroft(object):
         playlist = self.search_playlist(playlist)
         if len(playlist) > 0:
             song_id = self.track_id_from_url(track_id)
-            self.log.info("playlist id:")
-            self.log.info(playlist[0].id)
             add_to = self.client.add_to_playlist(song_id, playlist[0].id)
             return add_to
         else:
             return False
+
+    # Create a new jellyfin playlist
+    def create_playlist(self, playlist_name):
+        playlist = self.client.create_playlist(playlist_name)
+        return playlist
             
+    # Mark a song as favorite
+    def favorite(self, track_id):
+        track_id = self.track_id_from_url(track_id)  
+        return self.client.favorite(track_id)
+
+    # Get favorite songs
+    def get_favorites(self):
+        return self.convert_response_to_playable_songs(self.client.get_favorites())
+
     def search_artist(self, artist):
         """
         Helper method to just search Jellyfin for an artist
@@ -269,6 +281,10 @@ class JellyfinCroft(object):
         response = self.client.get_songs_by_playlist(playlist_id)
         return self.convert_response_to_playable_songs(response)
 
+    # Get songs from id (To allow meta data fetching)
+    def get_songs_by_id(self, song_id):
+        response = self.client.get_item(song_id)
+        return self.convert_response_to_playable_songs(response)
 
     def get_server_info_public(self):
         return self.client.get_server_info_public()
@@ -391,8 +407,9 @@ class JellyfinCroft(object):
                 genre_songs = self.get_songs_by_genre(genre[0].id)
                 return 'genre', genre_songs
             elif songs:
+                song_songs = self.get_songs_by_id(songs[0].id)
                 # if a song(s) matches pick the 1st
-                song_songs = self.convert_to_playable_songs(songs)
+                #song_songs = self.convert_to_playable_songs(songs)
                 return 'song', song_songs
             elif playlists:
                 playlist_songs = self.get_songs_by_playlist(playlists[0].id)

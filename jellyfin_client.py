@@ -10,10 +10,13 @@ PLAYLIST_URL = "/Playlists"
 ARTIST_INSTANT_MIX_URL = ARTISTS_URL + "/InstantMix"
 SONG_FILE_URL = "/Audio"
 DOWNLOAD_URL = "/Download"
+FAVORITE_URL = "/FavoriteItems"
 ITEMS_ARTIST_KEY = "ArtistIds"
 ITEMS_PARENT_ID_KEY = "ParentId"
 ITEMS_GENRE_KEY =  "GenreIds="
+ITEMS_FAVORITE_KEY = "IsFavorite=true"
 ITEMS_URL = "/Items"
+ITEMS_BY_FAVORITE_URL = ITEMS_URL + "?SortBy=SortName&SortOrder=Ascending&IncludeItemTypes=Audio&Recursive=true&" + ITEMS_FAVORITE_KEY
 ITEMS_ALBUMS_URL = ITEMS_URL + "?SortBy=SortName&SortOrder=Ascending&IncludeItemTypes=MusicAlbum&Recursive=true&" + ITEMS_ARTIST_KEY + "="
 ITEMS_SONGS_BY_ARTIST_URL = ITEMS_URL + "?SortBy=SortName&SortOrder=Ascending&IncludeItemTypes=Audio&Recursive=true&" + ITEMS_ARTIST_KEY + "="
 ITEMS_SONGS_BY_GENRE_URL = ITEMS_URL + "?SortBy=SortName&SortOrder=Ascending&IncludeItemTypes=Audio&Recursive=true&" + ITEMS_GENRE_KEY
@@ -153,6 +156,31 @@ class JellyfinClient(PublicJellyfinClient):
         else:
             return False
 
+    # Create a new jellyfin playlist
+    def create_playlist(self, name):
+        payload = {'Name': name}
+        payload.update(self.get_headers())
+        url = PLAYLIST_URL + "?userId=" + self.auth.user_id
+        response = self._post(url, payload)
+        if response.status_code == 200:
+            return True
+        else:
+            return False
+
+    # Marks a song as a favorite
+    def favorite(self, song_id):
+        url = "/Users/" + self.auth.user_id + FAVORITE_URL + "/" + song_id
+        response = self._post(url, self.get_headers())
+        if response.status_code == 200:
+            return True
+        else:
+            return False
+    
+    # Gets favorite songs
+    def get_favorites(self):
+        url = "/Users/" + self.auth.user_id + ITEMS_BY_FAVORITE_URL
+        return self._get(url)
+
     def get_albums_by_artist(self, artist_id):
         url = "/Users/" + self.auth.user_id + ITEMS_ALBUMS_URL + str(artist_id)
         return self._get(url)
@@ -175,6 +203,11 @@ class JellyfinClient(PublicJellyfinClient):
 
     def get_songs_by_playlist(self, playlist_id):
         url = PLAYLIST_URL + "/" + str(playlist_id) + ITEMS_URL + "?userId=" + self.auth.user_id
+        return self._get(url)
+
+    # Get item from id
+    def get_item(self, song_id):
+        url = "/Users/" + self.auth.user_id + ITEMS_URL + "?ids=" + str(song_id)
         return self._get(url)
 
     def get_all_artists(self):

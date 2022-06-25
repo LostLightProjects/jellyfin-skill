@@ -135,6 +135,27 @@ class Jellyfin(CommonPlaySkill):
             self.speak_playing(intent)
             self.audio_service.play(self.songs, message.data['utterance'])
 
+    # Play favorites
+    @intent_file_handler('isfavorite.intent')
+    def handle_is_favorite(self, message):
+        self.log.info(message.data)
+        if not self.connect_to_jellyfin():
+            self.speak_dialog('configuration_fail')
+            return
+        self.songs = self.jellyfin_croft.get_favorites()
+        if not self.songs or len(self.songs) < 1:
+            self.log.info('No songs Returned')
+            self.speak_dialog('play_fail', {"media": "favorites"})
+        else:
+            # setup audio service and play        
+            self.audio_service = AudioService(self.bus)
+            backends = self.audio_service.available_backends()
+            self.log.debug("BACKENDS. VLC Recommended")
+            for key , value in backends.items():
+                self.log.debug(str(key) + " : " + str(value))
+            self.speak_dialog('isfavorite')
+            self.audio_service.play(self.songs, message.data['utterance'])
+
     @intent_file_handler('shuffle.intent')
     def handle_shuffle(self, message):
         self.log.info(message.data)
@@ -182,13 +203,55 @@ class Jellyfin(CommonPlaySkill):
         else:
             self.speak_dialog('notplaying')
 
+    @intent_file_handler('playlist.intent')
+    def handle_playlist_add(self, message):
+        if self.audio_service.is_playing:
+            track = self.audio_service.track_info()['name']
+            track_name = self.jellyfin_croft.get_meta(track)
+            add_to = self.jellyfin_croft.add_to_playlist(track, message.data.get('playlist_name'))
+            if add_to == True:
+                self.speak_dialog('playlist', {'media' : track_name['Name'], 'playlist_name' : message.data.get('playlist_name')})
+                return
+        self.speak_dialog('playlist_fail', {'media' : track_name['Name'], 'playlist_name' : message.data.get('playlist_name')})
+        return
+
+    # Intent for creating a new playlist
+    @intent_file_handler('createplaylist.intent')
+    def handle_create_playlist(self, message):
+        if not self.connect_to_jellyfin():
+            return None
+        confirm = self.ask_yesno('playlistnameconfirm', {'playlist_name' : message.data.get('playlist_name')})
+        if confirm == 'yes':
+            create_new = self.jellyfin_croft.create_playlist(message.data.get('playlist_name'))
+            if create_new == True:
+                self.speak_dialog('createplaylist', {'playlist_name' : message.data.get('playlist_name')})
+                return
+        else:
+            return
+        self.speak_dialog('createplaylist_fail', {'playlist_name' : message.data.get('playlist_name')})
+        return
+
+    # Intent foor marking a song as favorite
+    @intent_file_handler('favorite.intent')
+    def handle_favorite(self, message):
+        if self.audio_service.is_playing:
+            track = self.audio_service.track_info()['name']
+            track_name = self.jellyfin_croft.get_meta(track)
+            favorite = self.jellyfin_croft.favorite(track)
+            if favorite == True:
+                self.speak_dialog('favorite', {'track_name' : track_name['Name']})
+                return
+            else:
+                self.speak_dialog('favorite_fail', {'track_name' : track_name['Name']})
+                return
+
     @intent_file_handler('diagnostic.intent')
     def handle_diagnostic(self, message):
 
         self.log.info(message.data)
         self.speak_dialog('diag_start')
 
-        # connec to jellyfin for diagnostics
+        # connect to jellyfin for diagnostics
         self.connect_to_jellyfin(diagnostic=True)
         connection_success, info = self.jellyfin_croft.diag_public_server_info()
 
