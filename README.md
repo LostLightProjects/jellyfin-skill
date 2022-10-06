@@ -20,10 +20,6 @@ This has been tested on Zorin OS 16 (Ubuntu 20.04 LTS), Debian Stable, Fedora Wo
 ## Tags
 #Jellyfin,#Music
 
-
-## Community
-I now have a Matrix Chat setup and it is bridged to Telegram. Find it on our Website at https://Lostlight.me
-
 ## Bugs
 * As far as I'm aware, we are bug free!
 NOTE: Some albums don't like to play, after extensive testing with the skill, I found out it was a bug on Jellyfin's side. Not the skill. Workaround is to add all songs from the album in question to a dedicated playlist.
