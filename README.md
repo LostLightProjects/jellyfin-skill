@@ -2,7 +2,7 @@
 This skill is a fork of the emby skill that allows audio playback from a Jellyfin server.
 
 ## Note:
-Sorry for lack of updates. I am trying to keep this maintained and updated, however I recently turned 18 and now have a full-time job as there are no hour restrictions. I am getting back into the swing of things, hopefuly more updates will be on the way soon!
+As far as I am concerned, all bugs have been worked out, and everything works as intended. I have had no issues in the last 6+ months of using it. If there are any feature requests, feel free to request. I will get around to working on it if it is feasable for me.
 
 ## About
 Stream music from your Jellyfin server using Mycroft! Play all songs by an artist or an instant mix of any artist/album/song in your Jellyfin library.
