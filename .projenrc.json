@@ -6,5 +6,6 @@
   "repositoryUrl": "https://github.com/LostLightProjects/jellyfin-skill",
   "skillClass": "Jellyfin",
   "license": "GPL-2.0",
+  "skillLicenseTest": false,
   "retrofit": true
 }

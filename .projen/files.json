@@ -1,7 +1,6 @@
 {
   "files": [
     ".gitattributes",
-    ".github/workflows/license_tests.yml",
     ".github/workflows/propose_release.yml",
     ".github/workflows/publish_alpha.yml",
     ".github/workflows/publish_release.yml",
