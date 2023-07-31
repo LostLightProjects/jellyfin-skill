@@ -3,8 +3,8 @@ from setuptools import setup
 from os import walk, path
 
 BASEDIR = path.abspath(path.dirname(__file__))
-URL = "TODO: Add 'repositoryUrl' to .projenrc.json and run pj"
-SKILL_CLAZZ = "TODO: Add 'skillClass' to .projenrc.json and run pj"  # needs to match __init__.py class name
+URL = "https://github.com/LostLightProjects/jellyfin-skill"
+SKILL_CLAZZ = "Jellyfin"  # needs to match __init__.py class name
 PYPI_NAME = "jellyfin-skill"  # pip install PYPI_NAME
 
 # below derived from github url to ensure standard skill_id
@@ -68,9 +68,9 @@ setup(
     long_description=long_description,
     long_description_content_type="text/markdown",
     url=URL,
-    author="TODO: Add 'author' to .projenrc.json and run pj",
+    author="Garrett B",
     author_email="TODO: Add 'authorAddress' to .projenrc.json and run pj",
-    license="# TODO: Add 'license' to .projenrc.json and run pj",
+    license="GPL-2.0",
     package_dir={SKILL_PKG: ""},
     package_data={SKILL_PKG: find_resource_files()},
     packages=[SKILL_PKG],
