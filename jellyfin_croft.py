@@ -2,7 +2,7 @@ import logging
 import subprocess
 from enum import Enum
 from collections import defaultdict
-from mycroft.util.parse import match_one
+from ovos_utils.parse import match_one
 import json
 import re
 

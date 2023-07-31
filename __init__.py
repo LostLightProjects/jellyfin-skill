@@ -1,19 +1,9 @@
-# TODO: Remove unused OVOS imports
-from ovos_workshop.decorators import intent_handler
-from ovos_workshop.skills import OVOSSkill
-from ovos_utils.intents import IntentBuilder
-from ovos_bus_client.message import Message
 import hashlib
-# TODO: Remove all Mycroft imports
-# from mycroft.skills.common_play_skill import CommonPlaySkill, CPSMatchLevel
-# TODO: Remove all Mycroft imports
-# from mycroft import intent_file_handler
-# TODO: Remove all Mycroft imports
-# from mycroft.util.parse import match_one
-# TODO: Remove all Mycroft imports
-# from mycroft.skills.audioservice import AudioService
-# TODO: Remove all Mycroft imports
-# from mycroft.api import DeviceApi
+from mycroft.skills.common_play_skill import CommonPlaySkill, CPSMatchLevel
+from ovos_workshop.decorators import intent_file_handler
+from ovos_utils.parse import match_one
+from ovos_audio.audio import AudioService
+from ovos_backend_client.api import DeviceApi
 from random import shuffle
 from .jellyfin_croft import JellyfinCroft
 
