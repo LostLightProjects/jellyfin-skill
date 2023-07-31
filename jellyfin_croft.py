@@ -418,6 +418,8 @@ class JellyfinCroft(object):
                 return None, None
 
     def set_version(self):
+        # TODO FIXME
+        # At the same time you should probably make PublicJellyfinClient respect this version
         """
         Attempts to get version based on the git hash
         :return:
