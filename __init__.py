@@ -1,9 +1,19 @@
+# TODO: Remove unused OVOS imports
+from ovos_workshop.decorators import intent_handler
+from ovos_workshop.skills import OVOSSkill
+from ovos_utils.intents import IntentBuilder
+from ovos_bus_client.message import Message
 import hashlib
-from mycroft.skills.common_play_skill import CommonPlaySkill, CPSMatchLevel
-from mycroft import intent_file_handler
-from mycroft.util.parse import match_one
-from mycroft.skills.audioservice import AudioService
-from mycroft.api import DeviceApi
+# TODO: Remove all Mycroft imports
+# from mycroft.skills.common_play_skill import CommonPlaySkill, CPSMatchLevel
+# TODO: Remove all Mycroft imports
+# from mycroft import intent_file_handler
+# TODO: Remove all Mycroft imports
+# from mycroft.util.parse import match_one
+# TODO: Remove all Mycroft imports
+# from mycroft.skills.audioservice import AudioService
+# TODO: Remove all Mycroft imports
+# from mycroft.api import DeviceApi
 from random import shuffle
 from .jellyfin_croft import JellyfinCroft
 
@@ -276,5 +286,6 @@ class Jellyfin(CommonPlaySkill):
         pass
 
 
+# TODO: Remove create_skill() function
 def create_skill():
     return Jellyfin()
