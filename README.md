@@ -15,8 +15,9 @@ This has been tested on Zorin OS 16 (Ubuntu 20.04 LTS), Debian Stable, Fedora Wo
 ## Credits
 * ghostbuster84 (Jellyfin)
 * rickyphewitt (Original Emby Skill)
-* meonkeys
+* meonkeys (Contributions)
 * tuxfoo (Original Jellyfin Skill)
+* strugee (Contibutions)
 
 ## Category
 **Music**
