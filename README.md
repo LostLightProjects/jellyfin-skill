@@ -4,7 +4,7 @@ This skill is a fork of the emby skill that allows audio playback from a Jellyfi
 ## Note:
 As far as I am concerned, all bugs have been worked out, and everything works as intended. I have had no issues in the last 6+ months of using it. If there are any feature requests, feel free to request. I will get around to working on it if it is feasable for me. 
 
-UPDATE: Now that Mycroft is mostly gone, we will be working on getting this prepared for OVOS and NEON. I haven't had much time to look into everything, and I am focusing on OVOS at the moment. Theoretically, they should both work mostly the same as Mycroft.
+UPDATE: Now that Mycroft is mostly gone, we will be working on getting this prepared for OVOS and NEON. I haven't had much time to look into everything, and I am focusing on OVOS at the moment. Theoretically, they should both work mostly the same as Mycroft. For installing on Legacy Mycrofts, please utilize the latest stable release. We are working on the main branch to make it work with OVOS and NEON now.
 
 ## About
 Stream music from your Jellyfin server using Mycroft, OVOS & NEON! Play all songs by an artist or an instant mix of any artist/album/song in your Jellyfin library.
