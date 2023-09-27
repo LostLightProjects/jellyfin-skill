@@ -2,7 +2,7 @@ import logging
 import subprocess
 from enum import Enum
 from collections import defaultdict
-from mycroft.util.parse import match_one
+from ovos_utils.parse import match_one
 import json
 import re
 
@@ -418,6 +418,8 @@ class JellyfinCroft(object):
                 return None, None
 
     def set_version(self):
+        # TODO FIXME
+        # At the same time you should probably make PublicJellyfinClient respect this version
         """
         Attempts to get version based on the git hash
         :return:

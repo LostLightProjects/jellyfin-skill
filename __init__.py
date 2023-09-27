@@ -1,9 +1,9 @@
 import hashlib
 from mycroft.skills.common_play_skill import CommonPlaySkill, CPSMatchLevel
-from mycroft import intent_file_handler
-from mycroft.util.parse import match_one
-from mycroft.skills.audioservice import AudioService
-from mycroft.api import DeviceApi
+from ovos_workshop.decorators import intent_file_handler
+from ovos_utils.parse import match_one
+from ovos_audio.audio import AudioService
+from ovos_backend_client.api import DeviceApi
 from random import shuffle
 from .jellyfin_croft import JellyfinCroft
 
@@ -87,11 +87,11 @@ class Jellyfin(CommonPlaySkill):
         :return:
         """
         auth_success = False
-        self.log.debug("Testing connection to: " + self.settings["hostname"])
+        self.log.debug("Testing connection to: " + self.settings.get("hostname"))
         try:
             self.jellyfin_croft = JellyfinCroft(
-                self.settings["hostname"] + ":" + str(self.settings["port"]),
-                self.settings["username"], self.settings["password"],
+                self.settings.get("hostname") + ":" + str(self.settings.get("port")),
+                self.settings.get("username"), self.settings.get("password"),
                 self.device_id, diagnostic)
             auth_success = True
         except Exception as e:
@@ -258,7 +258,7 @@ class Jellyfin(CommonPlaySkill):
         if connection_success:
             self.speak_dialog('diag_public_info_success', info)
         else:
-            self.speak_dialog('diag_public_info_fail', {'host': self.settings['hostname']})
+            self.speak_dialog('diag_public_info_fail', {'host': self.settings.get('hostname')})
             self.speak_dialog('general_check_settings_logs')
             self.speak_dialog('diag_stop')
             return
@@ -276,5 +276,6 @@ class Jellyfin(CommonPlaySkill):
         pass
 
 
+# TODO: Remove create_skill() function
 def create_skill():
     return Jellyfin()
