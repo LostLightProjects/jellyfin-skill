@@ -38,7 +38,7 @@ NOTE: Some albums don't like to play, after extensive testing with the skill, I 
 * Individual songs now play as long as there is metadata for it to read, I.E. Name of Song.
 
 ## Installation
-* mycroft-msm install https://github.com/LostLightProjects/jellyfin-skill/
+COMING SOON
 
 ## Picroft
 You will need to install vlc, installing just vlc-bin will not work which is really annoying.
